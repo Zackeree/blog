@@ -2,39 +2,21 @@ package com.example.blog.repository.user
 
 import javax.persistence.*
 
-/*
-    Generate User Entity, which corresponds to the user table
-
-    Fields:
-
-    username:       (Unique)
-    firstName
-    lastName
-    description     (Optional)
-    id              (Unique, Not Null)
+/**
+ * Entity Class representing a [User] for the web-application
+ *
+ * This Entity correlates to the User SQL table
  */
 
 @Entity
-@Table(name = "user")
 class User(
-        @Column(name = "username", unique = true)
+        //@Column(name = "username", unique = true)
         var username: String,
-        @Column(name = "firstName")
+        //@Column(name = "firstName")
         var firstName: String,
-        @Column(name = "lastName")
+        //@Column(name = "lastName")
         var lastName: String,
-        @Column(name = "description")
-        var description: String? = null
-) {
-    /*
-        Auto generate id column starting at 0
-    */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
-    var id: Long = 0
-
-    constructor(id: Long, username: String, email: String, password: String) : this(username, email, password) {
-        this.id = id
-    }
-}
+        //@Column(name = "description")
+        var description: String? = null,
+        //@Column(name = "id", unique = true)
+        @Id @GeneratedValue var id: Long? = null)
