@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS blog;
+USE blog;
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE user (
+  id          INT PRIMARY KEY AUTO_INCREMENT,
+  username    VARCHAR(100) NOT NULL,
+  firstName   VARCHAR(100) NOT NULL,
+  lastName    VARCHAR(100) NOT NULL,
+  description VARCHAR(320) NOT NULL DEFAULT '',
+
+  UNIQUE (username)
+);

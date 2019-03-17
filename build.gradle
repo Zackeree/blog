@@ -47,3 +47,9 @@ compileTestKotlin {
 test { 
 	useJUnitPlatform()
 }
+
+apply plugin: 'kotlin-allopen'
+
+allOpen {
+	annotation("javax.persistence.Entity")
+}
