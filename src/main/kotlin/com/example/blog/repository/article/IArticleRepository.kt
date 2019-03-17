@@ -15,7 +15,7 @@ interface IArticleRepository : CrudRepository<Article, Long> {
      * @return an [Article]
      */
 
-    //fun findBySlug(slug: String): Article?
+    fun findBySlug(slug: String): Article?
 
     /**
      * Spring Repository method that will grab all [Article] objects by the date added
@@ -24,7 +24,7 @@ interface IArticleRepository : CrudRepository<Article, Long> {
      * @return all [Article] objects
      */
 
-    //fun findArticlesByDateDesc(): Iterable<Article>
+    fun findAllByOrderByDateDesc(): Iterable<Article>
 
     /**
      * Spring Repository method that will grab all [Article] objects by the date added
@@ -33,5 +33,5 @@ interface IArticleRepository : CrudRepository<Article, Long> {
      * @return all [Article] objects
      */
 
-    //fun findArticlesByDateAsc(): Iterable<Article>
+    fun findAllByOrderByDateAsc(): Iterable<Article>
 }
