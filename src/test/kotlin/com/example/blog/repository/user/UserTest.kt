@@ -27,20 +27,20 @@ internal class UserTest @Autowired constructor(
     fun `Test findByUsername and return User`() {
         println(">> testing findByUsername")
         val user = userRepository.findByUsername("Zack")
-        assertThat(user).isEqualTo(zack);
+        assertThat(user).isEqualTo(zack)
     }
 
     @Test
     fun `Test findByFirstName and return User`() {
         println(">> testing findByFirstName")
         val user = userRepository.findByFirstName("Zackeree")
-        assertThat(user).isEqualTo(zack);
+        assertThat(user).isEqualTo(zack)
     }
 
     @Test
     fun `Test findByLastName and return User`() {
         println(">> testing findByLastName")
         val user = userRepository.findByLastName("Henry")
-        assertThat(user).isEqualTo(zack);
+        assertThat(user).isEqualTo(zack)
     }
 }
