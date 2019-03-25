@@ -17,9 +17,8 @@ class HtmlController (private val repository: IArticleRepository,
 
     @GetMapping("/")
     fun blog(model: Model): String {
-        // org.springframework.ui.set allows us to declare model in this fashion
-        // as opposed to model.addAttribute("title", "Blog")
-        model["title"] = "Blog"
+        model["title"] = properties.title
+        model["banner"] = properties.banner
         model["articles"] = repository.findAllByOrderByDateDesc().map { it.render() }
         return "blog"
     }

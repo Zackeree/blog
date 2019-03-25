@@ -33,13 +33,6 @@ class ArticleSearchController(private val repository: IArticleRepository) {
             ?: throw IllegalArgumentException("Unable to find any articles containing that text")
 
 
-    // Return all Articles that contain the input string
-    @Throws(IllegalArgumentException::class)
-    @GetMapping("/article/search/{content}")
-    fun findAllArticlesByContent(@PathVariable content: String) = repository.findAllByContent(content)
-            ?: throw IllegalArgumentException("Unable to find any articles containing that text")
-
-
     // Return a single Article by searching for a slug
     @GetMapping("/article/search/{slug}")
     fun findArticleBySlug(@PathVariable slug: String) = repository.findBySlug(slug)
