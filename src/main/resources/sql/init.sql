@@ -5,9 +5,19 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE user (
   id          INT PRIMARY KEY AUTO_INCREMENT,
   username    VARCHAR(100) NOT NULL,
-  firstName   VARCHAR(100) NOT NULL,
-  lastName    VARCHAR(100) NOT NULL,
-  description VARCHAR(320) NOT NULL DEFAULT '',
+  first_name   VARCHAR(100) NOT NULL,
+  last_name    VARCHAR(100) NOT NULL,
+  description VARCHAR(400) NOT NULL DEFAULT '',
 
   UNIQUE (username)
+);
+
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE article(
+  id         INT PRIMARY KEY AUTO_INCREMENT,
+  title      VARCHAR(160) NOT NULL,
+  headline   VARCHAR(160) NOT NULL,
+  content    VARCHAR(1600) NOT NULL,
+  slug       VARCHAR(200) NOT NULL,
+  date       DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

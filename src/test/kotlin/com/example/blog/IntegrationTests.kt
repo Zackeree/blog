@@ -13,28 +13,18 @@ import org.springframework.http.HttpStatus
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
 
-    // BeforeAll and AfterAll allow for CRUD testing of applications
-    @BeforeAll
-    fun setup() {
-        println(">> Setup")
-    }
-
+    // Assert that our articles are actually on the page
     @Test
-    fun `Assert blog page title, content and status code`() {
-        println(">> Assert blog page title, content and status code")
-        val entity = restTemplate.getForEntity<String>("/")
+    fun `Test article page title, content and status code`() {
+        println(">> Assert article page title, content and status code")
+        val title = "Welcome to the blog"
+        val entity = restTemplate.getForEntity<String>("/article/${title.toSlug()}")
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
-        assertThat(entity.body).contains("<h1>Blog</h1>")
-    }
+        assertThat(entity.body).contains(title, "Not much here huh?")
 
-    @Test
-    fun `Assert article page title, content and status code`() {
-        println(">> TODO")
+        val title2 = "First Post"
+        val entity2 = restTemplate.getForEntity<String>("/article/${title2.toSlug()}")
+        assertThat(entity2.statusCode).isEqualTo(HttpStatus.OK)
+        assertThat(entity2.body).contains(title2, "Sure is lonely...")
     }
-
-    @AfterAll
-    fun teardown() {
-        println(">> Tear down")
-    }
-
 }

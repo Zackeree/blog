@@ -1,4 +1,4 @@
-package com.example.blog.controller
+package com.example.blog.controller.web
 
 import com.example.blog.format
 import com.example.blog.repository.article.Article

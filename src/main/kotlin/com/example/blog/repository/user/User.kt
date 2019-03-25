@@ -9,14 +9,15 @@ import javax.persistence.*
  */
 
 @Entity
-class User(
-        //@Column(name = "username", unique = true)
+@Table(name = "user")
+data class User(
+        @Column(name = "username", unique = true)
         var username: String,
-        //@Column(name = "firstName")
+        @Column(name = "first_name")
         var firstName: String,
-        //@Column(name = "lastName")
+        @Column(name = "last_name")
         var lastName: String,
-        //@Column(name = "description")
+        @Column(name = "description")
         var description: String? = null,
-        //@Column(name = "id", unique = true)
-        @Id @GeneratedValue var id: Long? = null)
+        @Column(name = "id", unique = true, nullable = false)
+        @Id @GeneratedValue var id: Long = 0)

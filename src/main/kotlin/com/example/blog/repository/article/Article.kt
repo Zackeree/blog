@@ -12,11 +12,19 @@ import java.time.LocalDateTime
  */
 
 @Entity
-class Article(
+@Table(name="article")
+data class Article(
+        @Column(name="title", nullable = false)
         var title: String,
+        @Column(name="headline", nullable = false)
         var headline: String,
+        @Column(name="content", nullable = false)
         var content: String,
+        //@JoinColumn(name="author", nullable = false)
         @ManyToOne var author: User,
+        @Column(name="slug", nullable = false)
         var slug: String = title.toSlug(),
+        @Column(name="date", nullable = false)
         var date: LocalDateTime = LocalDateTime.now(),
-        @Id @GeneratedValue var id: Long? = null)
+        @Column(name = "id", unique = true, nullable = false)
+        @Id @GeneratedValue var id: Long = 0)
