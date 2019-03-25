@@ -16,6 +16,7 @@ interface IUserRepository : CrudRepository<User, Long> {
      */
     fun findByUsername(username: String): User
 
+
     /**
      * Spring Repository method that will grab a [User] by the firstName field
      * @param firstName the user's first name
@@ -23,6 +24,7 @@ interface IUserRepository : CrudRepository<User, Long> {
      * @return a [User]
      */
     fun findByFirstName(firstName: String): User
+
 
     /**
      * Spring Repository method that will grab a [User] by the lastName field
