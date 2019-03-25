@@ -1,5 +1,6 @@
 package com.example.blog.controller.web
 
+import com.example.blog.BlogProperties
 import com.example.blog.format
 import com.example.blog.repository.article.Article
 import com.example.blog.repository.article.IArticleRepository
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 
 @Controller
-class HtmlController (private val repository: IArticleRepository) {
+class HtmlController (private val repository: IArticleRepository,
+                      private val properties: BlogProperties) {
 
     @GetMapping("/")
     fun blog(model: Model): String {
